@@ -34,6 +34,16 @@ routine aging out. The "Generated:" header line carries the time of
 the last rebuild - if it is more than a few hours old, something on
 our side is broken and the list should be considered stale.
 
+Mirror
+------
+An automated mirror with version history - the commit log doubles as
+a changelog of listings - is available at:
+
+    https://github.com/cuandu/cubl-mail
+
+This page remains the canonical source; the mirror updates hourly and
+may lag it slightly.
+
 Delisting
 ---------
 If your address is listed and you believe this is in error, or you
@@ -46,6 +56,17 @@ Include the IP address and, if you can, what happened. Delisting
 requests are reviewed by a human; verified requests are honored
 promptly and the entry is additionally excluded from re-listing while
 the underlying observations age out.
+
+License
+-------
+The list and this documentation are licensed under the Creative
+Commons Attribution 4.0 International license (CC BY 4.0):
+
+    https://creativecommons.org/licenses/by/4.0/
+
+You may copy, redistribute and adapt the data for any purpose,
+including commercially, provided you give appropriate credit -
+"CUBL-Mail (cuandu.ch)" with a link to this page is sufficient.
 
 Terms
 -----
