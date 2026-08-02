@@ -1,0 +1,53 @@
+# Hourly pull-mirror of the published CUBL-Mail list into this repo.
+# Reference copy - the live workflow is .github/workflows/mirror.yml in
+# https://github.com/cuandu/cubl-mail. Runs at :35, after the canonical
+# list's :20 rebuild. Commits only when the entry set actually changed
+# (the Generated: timestamp alone does not count), so the commit history
+# stays a readable changelog of listings.
+name: mirror
+
+on:
+  schedule:
+    - cron: "35 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch canonical files
+        run: |
+          curl -fsS --max-time 60 -o /tmp/ips.txt \
+            https://ftp.cuandu.org/pub/cuandu/cubl-mail/ips.txt
+          curl -fsS --max-time 60 -o /tmp/README.txt \
+            https://ftp.cuandu.org/pub/cuandu/cubl-mail/README.txt
+          # Refuse to mirror an implausibly small list (truncated fetch,
+          # broken upstream) rather than publishing it.
+          [ "$(grep -cv '^#' /tmp/ips.txt)" -ge 50 ]
+
+      - name: Commit if the entry set changed
+        run: |
+          strip() { grep -v '^# Generated:' "$1"; }
+          if diff -q <(strip ips.txt) <(strip /tmp/ips.txt) >/dev/null \
+              && diff -q README.txt /tmp/README.txt >/dev/null; then
+            echo "No change, skipping commit"
+            exit 0
+          fi
+          old=$(mktemp); new=$(mktemp)
+          grep -v '^#' ips.txt | cut -d' ' -f1 | sort > "$old"
+          grep -v '^#' /tmp/ips.txt | cut -d' ' -f1 | sort > "$new"
+          added=$(comm -13 "$old" "$new" | wc -l)
+          removed=$(comm -23 "$old" "$new" | wc -l)
+          total=$(wc -l < "$new")
+          cp /tmp/ips.txt ips.txt
+          cp /tmp/README.txt README.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898994+github-actions[bot]@users.noreply.github.com"
+          git add ips.txt README.txt
+          git commit -m "update: +${added} -${removed} (${total} entries)"
+          git push
