@@ -67,6 +67,7 @@ Commons Attribution 4.0 International license (CC BY 4.0):
 You may copy, redistribute and adapt the data for any purpose,
 including commercially, provided you give appropriate credit -
 "CUBL-Mail (cuandu.ch)" with a link to this page is sufficient.
+The full license text is published next to this file as LICENSE.txt.
 
 Terms
 -----
