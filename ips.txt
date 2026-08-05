@@ -6,8 +6,8 @@
 # 90 days after they were last seen. See README.txt next to this file
 # for details.
 #
-# Generated: 2026-08-05T07:20:01Z
-# Entries: 555
+# Generated: 2026-08-05T12:20:01Z
+# Entries: 556
 # Delisting: cubl-mail-delist@cuandu.ch
 # License: CC BY 4.0 - https://creativecommons.org/licenses/by/4.0/
 #
@@ -176,7 +176,7 @@
 49.145.169.226 # last=2026-06-24
 49.200.43.206 # last=2026-06-24
 49.237.36.172 # last=2026-07-30
-50.6.200.195 # last=2026-07-26
+50.6.200.195 # last=2026-08-05
 58.27.40.38 # last=2026-08-01
 60.32.206.162 # last=2026-06-06
 60.190.243.162 # last=2026-08-03
@@ -453,6 +453,7 @@
 185.97.94.183 # last=2026-08-02
 185.110.147.98 # last=2026-08-01
 185.129.129.202 # last=2026-06-10
+185.130.57.119 # last=2026-08-05
 185.139.137.127 # last=2026-06-20
 185.139.138.9 # last=2026-06-08
 185.139.138.28 # last=2026-06-21
