@@ -6,17 +6,11 @@ https://ftp.cuandu.org/pub/cuandu/cubl-mail/ips.txt
 What this is
 ------------
 The file ips.txt contains a list of IPv4 addresses and IPv6 networks
-from which we have observed spam within the last 90 days. Listings
-are based solely on what our own production mail filtering observed,
-not on third-party feeds. The exact listing criteria are deliberately
-not published so that they remain robust against evasion.
-
-Why we publish it
------------------
-We publish this list because we believe sharing this information
-with the community might be helpful - especially since we have
-observed that some of these spam sources are missed by other,
-similar threat intelligence lists.
+from which we have observed suspicious mail within the last 25 days.
+Listings are based solely on what our own production mail filtering
+observed, not on third-party feeds. The exact listing criteria are
+deliberately not published so that they remain robust against
+evasion.
 
 Format
 ------
@@ -28,7 +22,7 @@ rspamd map, a pf table file, or a Postfix CIDR source.
 
 Freshness and expiry
 --------------------
-The list is regenerated hourly. Entries expire automatically 90 days
+The list is regenerated hourly. Entries expire automatically 25 days
 after the source was last observed; there is nothing to request for
 routine aging out. The "Generated:" header line carries the time of
 the last rebuild - if it is more than a few hours old, something on
@@ -53,7 +47,7 @@ hijacked account), write to:
     cubl-mail-delist@cuandu.ch
 
 Include the IP address and, if you can, what happened. Delisting
-requests are reviewed by a human; verified requests are honored
+requests are reviewed automatically; verified requests are honored
 promptly and the entry is additionally excluded from re-listing while
 the underlying observations age out.
 
