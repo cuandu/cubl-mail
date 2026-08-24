@@ -7,8 +7,8 @@ slightly; in exchange, the commit history doubles as a changelog of
 listings.
 
 - [`ips.txt`](ips.txt) — the list: IPv4 addresses and IPv6 /64 networks
-  from which we observed spam within the last 90 days. Entries expire
-  automatically 90 days after they were last seen.
+  from which we observed suspicious mail within the last 25 days.
+  Entries expire automatically 25 days after they were last seen.
 - [`README.txt`](README.txt) — the canonical documentation (format,
   freshness, delisting).
 
